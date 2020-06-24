@@ -5,15 +5,6 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
-	{
-	resolve: `gatsby-source-strapi`,
-		options: {
-			apiURL: process.env.API_URL || `http://localhost:1337`,
-			queryLimit: 1000, // Default to 100
-			contentTypes: ['article'],
-			singleTypes: []
-		}
-	},
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
