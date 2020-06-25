@@ -10,8 +10,8 @@ module.exports = {
 		options: {
 			apiURL: process.env.API_URL,
 			queryLimit: 1000, // Default to 100
-			contentTypes: ['article'],
-			singleTypes: []
+			contentTypes: ['article', 'footer-legal-menus'],
+			singleTypes: [`home`, `about-percayso`]
 		}
 	},
     `gatsby-plugin-react-helmet`,

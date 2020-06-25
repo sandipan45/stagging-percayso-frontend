@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1700px" height="954px" viewBox="0 0 1700 954" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>Divider shape 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="40.94356%" id="linearGradient-1">
+            <stop stop-color="#EFEFEF" offset="0%"/>
+            <stop stop-color="#FFFFFF" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="19.1929236%" id="linearGradient-2">
+            <stop stop-color="#E5E4E4" offset="0%"/>
+            <stop stop-color="#FFFFFF" offset="100%"/>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PIL-Revamp-V1---Final" transform="translate(0.000000, -1973.000000)">
+            <g id="Divider-shape-1" transform="translate(0.000000, 1973.000000)">
+                <path d="M0,68 C70.3539015,93.4793994 221.187235,99.6460661 452.5,86.5 C799.469148,66.7809009 964.444974,1.57217989e-14 1196.5,0 C1351.20335,0 1519.03668,22.6666667 1700,68 L1700,954 L0,954 L0,68 Z" id="Rectangle" fill="url(#linearGradient-1)"/>
+                <path d="M0,98 C70.3539015,123.479399 221.187235,129.646066 452.5,116.5 C799.469148,96.7809009 964.444974,30 1196.5,30 C1351.20335,30 1519.03668,52.6666667 1700,98 L1700,831 L0,831 L0,98 Z" id="Rectangle" fill="url(#linearGradient-2)"/>
+            </g>
+        </g>
+    </g>
+</svg>

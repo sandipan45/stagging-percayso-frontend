@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1700px" height="1105px" viewBox="0 0 1700 1105" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>Divider shape 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="40.94356%" id="linearGradient-1">
+            <stop stop-color="#EFEFEF" offset="0%"/>
+            <stop stop-color="#FFFFFF" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="19.1929236%" id="linearGradient-2">
+            <stop stop-color="#E5E4E4" offset="0%"/>
+            <stop stop-color="#FFFFFF" offset="100%"/>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PIL-Revamp-V1---Final" transform="translate(0.000000, -3133.000000)">
+            <g id="Divider-shape-2" transform="translate(820.418497, 3637.966610) rotate(5.000000) translate(-820.418497, -3637.966610) translate(-108.081503, 3116.466610)">
+                <path d="M0.412375411,74.8137209 C77.222282,102.643421 241.896792,109.378921 494.435905,95.0202198 C873.244574,73.4821682 1053.35936,0.541184185 1306.70885,0.541184185 C1475.6085,0.541184185 1658.84301,25.2986964 1856.41238,74.8137209 L1856.41238,1042.54118 L0.412375411,1042.54118 L0.412375411,74.8137209 Z" id="Rectangle" fill="url(#linearGradient-1)"/>
+                <path d="M0.0393670661,108.58008 C76.8492737,136.381572 241.523783,143.110244 494.062896,128.766097 C872.871566,107.249877 1052.98635,34.3828263 1306.33584,34.3828263 C1475.2355,34.3828263 1658.47001,59.1152441 1856.03937,108.58008 L1856.03937,908.382826 L0.0393670661,908.382826 L0.0393670661,108.58008 Z" id="Rectangle" fill="url(#linearGradient-2)"/>
+            </g>
+        </g>
+    </g>
+</svg>
