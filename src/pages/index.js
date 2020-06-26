@@ -15,11 +15,11 @@ const IndexPage = ({data}) => (
 		</div>
 	</div>
 	<div className="percayso-intro-diagram">
-		<div className="middle-circle"><img src={data.strapiAboutPercayso.middlelogo.publicURL} alt="" /></div>
+		<div className="middle-circle"></div>
 		<div className="circle-in percayso">
             <Link to="#">
 			  <p dangerouslySetInnerHTML={{__html: data.strapiAboutPercayso.diagrampercaysointro }} /> 
-              <span className="percayso-logo"><img src={data.strapiAboutPercayso.percaysologo.publicURL} alt="" /></span>
+              <span className="percayso-logo"></span>
             </Link>
         </div>
 		<div className="circle-in top-right">
@@ -31,13 +31,13 @@ const IndexPage = ({data}) => (
 		<div className="circle-in percayso-inform">
             <Link to="{data.strapiAboutPercayso.percaysoinformlink}" target="_blank">
               <p dangerouslySetInnerHTML={{__html: data.strapiAboutPercayso.percaysoinformtext }} />
-              <span className="percayso-logo"><img src={data.strapiAboutPercayso.parcaysoinformlogo.publicURL} alt="" /></span>
+              <span className="percayso-logo"></span>
             </Link>
         </div>
 		<div className="circle-in percayso-business">
             <Link to="{data.strapiAboutPercayso.percaysobusinesslink}" target="_blank">
               <p dangerouslySetInnerHTML={{__html: data.strapiAboutPercayso.percaysobusinesstext }} />
-              <span className="percayso-logo"><img src={data.strapiAboutPercayso.percaysobusinesslogo.publicURL} alt="" /></span>
+              <span className="percayso-logo"></span>
             </Link>
         </div>
 		<div className="circle-in bottom-right">
@@ -49,7 +49,7 @@ const IndexPage = ({data}) => (
 		<div className="circle-in percayso-community">
             <Link to="{data.strapiAboutPercayso.percaysocommlink}" target="_blank">
               <p dangerouslySetInnerHTML={{__html: data.strapiAboutPercayso.percaysocommutext }} />
-              <span className="percayso-logo"><img src={data.strapiAboutPercayso.percaysocommlogo.publicURL} alt="" /></span>
+              <span className="percayso-logo"></span>
             </Link>
         </div>
 	</div>
