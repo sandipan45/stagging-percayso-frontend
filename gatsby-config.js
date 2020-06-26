@@ -5,15 +5,6 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
-	{
-	resolve: `gatsby-source-strapi`,
-		options: {
-			apiURL: process.env.API_URL,
-			queryLimit: 1000, // Default to 100
-			contentTypes: ['article', 'footer-legal-menus'],
-			singleTypes: [`home`, `about-percayso`]
-		}
-	},
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -39,5 +30,14 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+	{
+	resolve: `gatsby-source-strapi`,
+		options: {
+			apiURL: process.env.API_URL,
+			queryLimit: 1000, // Default to 100
+			contentTypes: ['article', 'footer-legal-menus'],
+			singleTypes: [`home`, `about-percayso`]
+		}
+	},
   ],
 }
