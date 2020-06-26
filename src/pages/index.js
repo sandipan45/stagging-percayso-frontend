@@ -67,29 +67,14 @@ query MyQuery {
 	diagrampercaysointro
     percaysointoleft
     percaysointroright
-    percaysologo {
-      publicURL
-    }
 	percaysoinformtext
     percaysoinformlink
-    parcaysoinformlogo {
-      publicURL
-    }
     percaysobusinesstext
     percaysobusinesslink
-    percaysobusinesslogo {
-      publicURL
-    }
     percaysocommutext
     percaysocommlink
-    percaysocommlogo {
-      publicURL
-    }
     percaysocommlefttext
     percaysocommrighttext
-	middlelogo {
-      publicURL
-    }
   }
 }
 `
