@@ -68,31 +68,26 @@ query MyQuery {
     percaysointoleft
     percaysointroright
     percaysologo {
-      extension
       publicURL
     }
 	percaysoinformtext
     percaysoinformlink
     parcaysoinformlogo {
-      extension
       publicURL
     }
     percaysobusinesstext
     percaysobusinesslink
     percaysobusinesslogo {
-      extension
       publicURL
     }
     percaysocommutext
     percaysocommlink
     percaysocommlogo {
-      extension
       publicURL
     }
     percaysocommlefttext
     percaysocommrighttext
 	middlelogo {
-      extension
       publicURL
     }
   }
