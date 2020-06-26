@@ -25,18 +25,6 @@ const Layout = ({ children }) => {
 	  strapiHome {
 		bannertextone
 		bannertexttwo
-		bannermp4 {
-		  extension
-		  publicURL
-		}
-		bannerwebm {
-		  extension
-		  publicURL
-		}
-		bannerogg {
-		  extension
-		  publicURL
-		}
 	  }
 	  allStrapiArticle {
 		nodes {
@@ -76,9 +64,7 @@ const Layout = ({ children }) => {
 			width: `1349px`,
 			height: `758.813px`
 			}}>
-			  <source src={data.strapiHome.bannermp4.publicURL} type="video/mp4" />
-			  <source src={data.strapiHome.bannerwebm.publicURL} type="video/webm" />
-			  <source src={data.strapiHome.bannerogg.publicURL} type="video/ogg" />
+
 			</video>
         </div> 		
       </div>
