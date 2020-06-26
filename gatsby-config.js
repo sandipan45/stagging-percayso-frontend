@@ -33,7 +33,7 @@ module.exports = {
 	{
 	resolve: `gatsby-source-strapi`,
 		options: {
-			apiURL: process.env.API_URL,
+			apiURL: https://stagging-percayso-backend.herokuapp.com,
 			queryLimit: 1000, // Default to 100
 			contentTypes: ['article', 'footer-legal-menus'],
 			singleTypes: [`home`, `about-percayso`]
