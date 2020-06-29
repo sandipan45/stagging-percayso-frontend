@@ -16,7 +16,7 @@ const IndexPage = ({data}) => (
 		</div>
 	</div>
 	<div className="percayso-intro-diagram">
-		<div className="middle-circle"></div>
+		<div className="middle-circle"><img src={data.strapiAboutPercayso.middlelogo.publicURL} alt="" /></div>
 		<div className="circle-in percayso">
             <Link to="#">
 			  <p dangerouslySetInnerHTML={{__html: data.strapiAboutPercayso.diagrampercaysointro }} /> 
@@ -174,6 +174,3 @@ query MyQuery {
   }
 }
 `
-
-
-
