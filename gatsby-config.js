@@ -36,7 +36,7 @@ module.exports = {
 			apiURL: `https://stagging-percayso-backend.herokuapp.com`,
 			queryLimit: 1000, // Default to 100
 			contentTypes: ['article', 'footer-legal-menus', 'percaysoteam'],
-			singleTypes: [`home`, `about-percayso`, `corporate-section`, `home-page-other-settings`]
+			singleTypes: [`home`, `about-percayso`, `corporate-section`, `home-page-other-settings`] 
 		}
 	},
   ],
