@@ -13,6 +13,9 @@ import Header from "./header"
 import "./layout.css"
 
 import scrollDownIcon from "../images/scroll-down-icon.png"
+import bannerVideoMpfour from "../images/bg-video.mp4"
+import bannerVideoWebm from "../images/bg-video.webm"
+import bannerVideoOgv from "../images/bg-video.ogv"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -64,7 +67,9 @@ const Layout = ({ children }) => {
 			width: `1349px`,
 			height: `758.813px`
 			}}>
-
+			  <source src={bannerVideoMpfour} type="video/mp4" />
+			  <source src={bannerVideoWebm} type="video/webm" />
+			  <source src={bannerVideoOgv} type="video/ogg" />
 			</video>
         </div> 		
       </div>

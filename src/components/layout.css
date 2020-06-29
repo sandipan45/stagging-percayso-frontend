@@ -303,7 +303,7 @@ body {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: rgba(1,51,102,.8);
+    background: rgba(124, 58, 116, 0.9);
     z-index: 5;
     right: -100%;
     top: 0;
@@ -610,6 +610,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9a1f1c', end
     bottom: -50px;
     float: right;
 }
+
 @media screen and (max-width: 1600px)
 .hand-image {
     bottom: -100px;
@@ -712,6 +713,10 @@ a.button {
 .solution {
     text-align: center;
 }
+.corporate-view {
+    text-align: center;
+    padding-bottom: 130px;
+}
 .what-impact {
 	background-image: url(../images/divider-shape-1.svg);
 	margin: -62px 0 20px;
@@ -720,6 +725,10 @@ a.button {
 .what-impact .container {
     min-height: 810px;
     position: relative;
+}
+.corporate-view .container {
+    position: relative;
+    z-index: 1;
 }
 .solution h2.heading-h2 {
     color: #013366;
@@ -916,7 +925,15 @@ a.button {
 
 
 .insurers-steps {background-image: url(../images/divider-shape-2.svg);}
-.insurers-steps h2.heading-h2{color: #19a5cc;}
+.insurers-steps h2.heading-h2 {color: #393939;}
+.intro-row p, .what-impact p, .data-enrichment p, .about-percayso p, .home-contact p, .insurers-steps p {
+	line-height: 30px;
+	font-size: 22px;
+	padding: 20px 0;
+}
+b, strong {
+	font-family: 'Greycliff CF Demi';
+}
 .insurers-steps .steps{margin: 40px -30px; display: flex; flex-flow: row wrap;}
 .insurers-steps .steps li{
 	width:calc((100% - (60px * 3)) / 3);
@@ -1531,4 +1548,220 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1000000', e
 @media screen and (max-width:479px) {
 	.distribution .benefits ul li{width: 33.33%;}
 	.distribution .benefits ul li object{width: 70px; height: 70px;}
+}
+
+/*---- Corporate Overview ----*/
+
+.corporate-view{
+	text-align: center;
+	padding-bottom: 130px;
+}
+.corporate-view:after{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	content: '';
+	background-image: url(../images/divider-shape-4.svg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: 100%;
+}
+.corporate-view .container{position: relative; z-index: 1;}
+.corporate-view h2.heading-h2{color: #7c3a74;}
+.corporate-view h3{font-size: 32px; font-weight: bold; color: #fa4879; padding: 20px 0;}
+
+.corporate-circle {
+    max-width: 1230px;
+    margin: 80px auto 0;
+    position: relative;
+    clear: both;
+	text-align: center;
+	display: flex;
+	justify-content: space-between;
+}
+.corporate-circle:after{
+	position: absolute;
+	left: 50%;
+	bottom: -140px;
+	width: 5px;
+	height: 500px;
+	background: url(../images/white-sep-line.png) no-repeat left bottom;
+	content: '';
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+
+.corporate-circle .percayso-main-logo{
+	position: absolute;
+	width: 200px;
+	left: 50%;
+	top: 0;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.corporate-circle .percayso-main-logo img{width: 100%;}
+.corporate-circle .percayso-partner-connect{
+	position: absolute;
+	width: 460px;
+	left: 50%;
+	top: 130px;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.corporate-circle .percayso-partner-connect:after{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 61px;
+	left: 0;
+	top: 0;
+	background: url(../images/circle-line-curve1.png) no-repeat center top;
+	content: '';
+}
+
+.corporate-circle .column{
+	width: 585px; 
+	display: flex; 
+	flex-flow: row wrap; 
+	justify-content: center;
+	align-content: start;
+}
+.corporate-circle .bottom-main{width: 100%; display: flex; justify-content: space-between; position: relative;}
+.corporate-circle .bottom-main:before{
+	width: 16px;
+	height: 65px;
+	position: absolute;
+	background: #c6c6c6;
+	left: 282px;
+	top: -3px;
+	content: '';
+}
+.corporate-circle .bottom-main:after{
+	width: 145px;
+	height: 65px;
+	position: absolute;
+	left: 222px;
+	top: 55px;
+	background: url(../images/circle-line-curve2.png) no-repeat center top;
+	content: '';
+}
+
+.corporate-circle h2,
+.corporate-circle h4{
+	text-transform: uppercase;
+	width: 100%;
+	font-weight: 900;
+}
+.corporate-circle h2{
+	font-size: 24px;
+	color: #393939;
+	min-height: 65px;
+	margin-bottom: 50px;
+}
+.corporate-circle h4{
+	text-transform: uppercase;
+	font-size: 18px;
+	color: #7a7a7a;
+	padding: 30px 0 20px;
+}
+.corporate-circle .circle-in{
+	width: 240px;
+	height: 240px;
+	background: #fff;
+	border: 20px solid #c6c6c6;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: row wrap;
+	padding:0;
+	background: #fa4879;
+	position: relative;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+}
+.corporate-circle .circle-in img{width: 120px;}
+.corporate-circle .circle-in p{
+	color: #fff;
+	font-size: 12px;
+	position: absolute;
+	bottom: 30px;
+}
+.corporate-circle .circle-in a{
+	display: flex;
+	width: 200px;
+	height: 200px;
+	justify-content: center;
+	align-items: center;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease; 
+}
+
+.corporate-circle .circle-in.percayso{
+background: #8b3b75;
+background: -moz-linear-gradient(35deg,  #8b3b75 0%, #f94978 50%, #febd6b 100%);
+background: -webkit-linear-gradient(35deg,  #8b3b75 0%,#f94978 50%,#febd6b 100%);
+background: linear-gradient(35deg,  #8b3b75 0%,#f94978 50%,#febd6b 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b3b75', endColorstr='#febd6b',GradientType=1 ); 	
+}
+
+/* .corporate-circle .circle-in.percayso-inform{
+background: #015283;
+background: -moz-linear-gradient(35deg,  #015283 0%, #17bad9 50%, #a4f5ed 100%); 
+background: -webkit-linear-gradient(35deg,  #015283 0%,#17bad9 50%,#a4f5ed 100%);
+background: linear-gradient(35deg,  #015283 0%,#17bad9 50%,#a4f5ed 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#015283', endColorstr='#a4f5ed',GradientType=1 );
+} */
+
+.corporate-circle .circle-in.percayso-inform{
+	background: url(../images/uk-flag-bg.jpg) no-repeat;
+}
+.corporate-circle .circle-in.percayso-inform.australia{
+	background: url(../images/aus-flag-bg.jpg) no-repeat;
+}
+.corporate-circle .circle-in.percayso-inform a{
+	background: rgb(1,82,131);
+	background: -moz-linear-gradient(35deg,  rgba(1,82,131,.95) 0%, rgba(23,186,217,.95) 50%, rgba(164,245,237,.95) 100%);
+	background: -webkit-linear-gradient(35deg,  rgba(1,82,131,.95) 0%,rgba(23,186,217,.95) 50%,rgba(164,245,237,.95) 100%);
+	background: linear-gradient(35deg,  rgba(1,82,131,.95) 0%,rgba(23,186,217,.95) 50%,rgba(164,245,237,.95) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#015283', endColorstr='#a4f5ed',GradientType=1 );
+
+}
+
+.corporate-circle .circle-in.percayso-business{
+background: #0d693d;
+background: -moz-linear-gradient(35deg,  #0d693d 0%, #4bbf6e 50%, #bffc7c 100%);
+background: -webkit-linear-gradient(35deg,  #0d693d 0%,#4bbf6e 50%,#bffc7c 100%);
+background: linear-gradient(35deg,  #0d693d 0%,#4bbf6e 50%,#bffc7c 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d693d', endColorstr='#bffc7c',GradientType=1 );
+}
+.corporate-circle .circle-in.percayso-community{
+background: #9a1f1c;
+background: -moz-linear-gradient(35deg,  #9a1f1c 0%, #f99a4f 50%, #ffde77 100%);
+background: -webkit-linear-gradient(35deg,  #9a1f1c 0%,#f99a4f 50%,#ffde77 100%);
+background: linear-gradient(35deg,  #9a1f1c 0%,#f99a4f 50%,#ffde77 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9a1f1c', endColorstr='#ffde77',GradientType=1 );
+}
+
+@media screen and (max-width:1199px) {
+	.corporate-view{position: relative;}
+	.corporate-view h3{font-size: 21px;}
+}
+.about-percayso h2.heading-h2 {
+	color: #7c3a74;
+}
+.abt-color {
+	color: #fa4879;
 }

@@ -1,4 +1,5 @@
 import React from "react"
+import Img from 'gatsby-image'
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -53,6 +54,75 @@ const IndexPage = ({data}) => (
             </Link>
         </div>
 	</div>
+	<div className="section what-impact corporate-view">
+		<div className="container">
+			<h2 className="heading-h2" dangerouslySetInnerHTML={{__html: data.strapiCorporateSection.title }} />
+			<h3 dangerouslySetInnerHTML={{__html: data.strapiCorporateSection.subtitle }} />
+			<div className="corporate-circle">
+				<div className="percayso-main-logo"></div>
+				<div className="percayso-partner-connect">
+					<h4>Partner</h4>
+				</div>
+				<div className="column left">
+					<h2>Companies</h2>
+					<div className="circle-in percayso">
+						
+						<p>{data.strapiCorporateSection.title}</p>
+					</div>
+					<div className="bottom-main">
+						<div className="circle-in bottom-left percayso-inform uk">
+							<Link to="#">
+								
+							</Link>
+						</div>
+						<div className="circle-in bottom-right percayso-inform australia">
+							<Link to="#">
+								
+							</Link>
+						</div>
+					</div>
+					<h4>{data.strapiCorporateSection.companytype}</h4>
+				</div>
+				<div className="column right">
+					<h2>Community<br/>Partnership</h2>
+					<div className="circle-in percayso">
+						
+						<p>{data.strapiCorporateSection.commpartname}</p>
+					</div>
+					<div className="bottom-main">
+						<div className="circle-in bottom-left percayso-community">
+							<Link to="#">
+								
+							</Link>
+						</div>
+						<div className="circle-in bottom-right percayso-business">
+							<Link to="#">
+								
+							</Link>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="section insurers-steps">
+		<div className="container">
+			<h2 className="heading-h2">{data.strapiHomePageOtherSettings.investingpercaysotitle}</h2>
+			<div className="insures-text-desc" dangerouslySetInnerHTML={{__html: data.strapiHomePageOtherSettings.Description }} />
+		</div>
+	</div>
+	<div className="section about-percayso">
+		<div className="container">
+			<h2 className="heading-h2">{data.strapiHomePageOtherSettings.whowearetitle}</h2>
+			<div dangerouslySetInnerHTML={{__html: data.strapiHomePageOtherSettings.whowearedeatils }} />
+		</div>
+	</div>
+	<div className="section percayso-team" id="secMeetTeam">
+		<div className="slider-box">
+			<div id="team-slider" className="owl-carousel owl-theme owl-loaded owl-drag">
+			</div>
+		</div>
+	</div>
   </Layout>
 )
 
@@ -67,14 +137,40 @@ query MyQuery {
 	diagrampercaysointro
     percaysointoleft
     percaysointroright
+    
 	percaysoinformtext
     percaysoinformlink
+    
     percaysobusinesstext
     percaysobusinesslink
+    
     percaysocommutext
     percaysocommlink
+    
     percaysocommlefttext
     percaysocommrighttext
+	middlelogo {
+      extension
+      publicURL
+    }
+  }
+  strapiCorporateSection {
+    title
+    subtitle
+    
+    companyname
+    
+    companytype
+    
+    commpartname
+    
+   
+  }
+  strapiHomePageOtherSettings {
+    investingpercaysotitle
+    Description
+    whowearetitle
+    whowearedeatils
   }
 }
 `
