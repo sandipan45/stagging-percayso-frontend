@@ -122,27 +122,27 @@ const Layout = ({ children }) => {
 					<div role="form" className="wpcf7" id="wpcf7-f967-o1" lang="en" dir="ltr">
 						<form action="/" method="post" className="wpcf7-form">
 							<div className="contactform-field input-text">
-								<input type="text" name="client" size="40" className="wpcf7-form-control" id="first-text" aria-required="true" aria-invalid="false" placeholder="Name" />
+								<input type="text" name="client" size="40" className="wpcf7-form-control" id="first-text" aria-label="Name" placeholder="Name" />
 							</div>
 							<div className="contactform-field input-text">
-								<input type="text" name="address" size="40" className="wpcf7-form-control" aria-required="true" aria-invalid="false" placeholder="Address" />
+								<input type="text" name="address" size="40" className="wpcf7-form-control" aria-label="Address" placeholder="Address" />
 							</div>
 							<div className="contactform-field input-email">
-								<input type="email" name="email" size="40" className="wpcf7-form-control" aria-required="true" aria-invalid="false" placeholder="Email address" />
+								<input type="email" name="email" size="40" className="wpcf7-form-control" aria-label="Email address" placeholder="Email address" />
 							</div>
 							<div className="contactform-field input-number">
-								<input type="number" name="phone" className="wpcf7-form-control" aria-required="true" aria-invalid="false" placeholder="Phone number" />
+								<input type="number" name="phone" className="wpcf7-form-control" aria-label="Phone number" placeholder="Phone number" />
 							</div>
 							<div className="contactform-field input-text">
-								<input type="text" name="code" size="40" className="wpcf7-form-control" aria-required="true" aria-invalid="false" placeholder="Introducer code" />
+								<input type="text" name="code" size="40" className="wpcf7-form-control" aria-label="Introducer code" placeholder="Introducer code" />
 							</div>
 							<div className="contactform-field input-text">
 								<p>I am interested in</p>
-								<span><input type="checkbox" name="checkbox-group" value="1" aria-invalid="false" id="test1" /><label>Investing</label></span>
-								<span><input type="checkbox" name="checkbox-group-1" value="1" aria-invalid="false" id="test2" /><label>Introducing investors</label></span>								
+								<span><input type="checkbox" name="checkbox-group" value="1" aria-label="Investing" id="test1" /><p>Investing</p></span>
+								<span><input type="checkbox" name="checkbox-group-1" value="1" aria-label="Introducing investors" id="test2" /><p>Introducing investors</p></span>								
 							</div>
 							<div className="contactform-field submit-button">
-								<input type="submit" value="Submit" className="wpcf7-form-control submit-btn" />
+								<input type="submit" value="Submit" aria-label="Submit" className="wpcf7-form-control submit-btn" />
 							</div>
 						</form>
 					</div>
