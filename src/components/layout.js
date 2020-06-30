@@ -13,6 +13,7 @@ import Header from "./header"
 import "./layout.css"
 
 import scrollDownIcon from "../images/scroll-down-icon.png"
+import emailIcon from "../images/email-icon.png"
 import bannerVideoMpfour from "../images/bg-video.mp4"
 import bannerVideoWebm from "../images/bg-video.webm"
 import bannerVideoOgv from "../images/bg-video.ogv"
@@ -109,6 +110,45 @@ const Layout = ({ children }) => {
 				</div>
 			</div>
         </footer>
+		<div className="modal-overlay"></div>
+		<div className="modal-box talk-modal-wrapper">
+			<div className="talk-modal">
+				<div className="heading-col">
+					<i><img src={emailIcon} alt="" /></i>
+					<h2>Let's go</h2>
+					<p>Please provide your details and investment preferences and one of our team will respond by email</p>
+				</div>
+				<div className="talk-form">
+					<div role="form" className="wpcf7" id="wpcf7-f967-o1" lang="en" dir="ltr">
+						<form action="/" method="post" className="wpcf7-form">
+							<div className="contactform-field input-text">
+								<input type="text" name="client" size="40" className="wpcf7-form-control" id="first-text" aria-required="true" aria-invalid="false" placeholder="Name" />
+							</div>
+							<div className="contactform-field input-text">
+								<input type="text" name="address" size="40" className="wpcf7-form-control" aria-required="true" aria-invalid="false" placeholder="Address" />
+							</div>
+							<div className="contactform-field input-email">
+								<input type="email" name="email" size="40" className="wpcf7-form-control" aria-required="true" aria-invalid="false" placeholder="Email address" />
+							</div>
+							<div className="contactform-field input-number">
+								<input type="number" name="phone" className="wpcf7-form-control" aria-required="true" aria-invalid="false" placeholder="Phone number" />
+							</div>
+							<div className="contactform-field input-text">
+								<input type="text" name="code" size="40" className="wpcf7-form-control" aria-required="true" aria-invalid="false" placeholder="Introducer code" />
+							</div>
+							<div className="contactform-field input-text">
+								<p>I am interested in</p>
+								<span><input type="checkbox" name="checkbox-group" value="1" aria-invalid="false" id="test1" /><label>Investing</label></span>
+								<span><input type="checkbox" name="checkbox-group-1" value="1" aria-invalid="false" id="test2" /><label>Introducing investors</label></span>								
+							</div>
+							<div className="contactform-field submit-button">
+								<input type="submit" value="Submit" className="wpcf7-form-control submit-btn" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div className="cn-top" id="cookie-notice">
 		<div className="container">

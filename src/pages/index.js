@@ -1,8 +1,11 @@
 import React from "react"
-import Img from 'gatsby-image'
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
+import linkdinImage from "../images/linkedin-icon2.png"
+import "./assets/owl.carousel.min.css"
+import "./assets/owl.carousel.js"
 
 const IndexPage = ({data}) => (
   <Layout>
@@ -120,7 +123,91 @@ const IndexPage = ({data}) => (
 	<div className="section percayso-team" id="secMeetTeam">
 		<div className="slider-box">
 			<div id="team-slider" className="owl-carousel owl-theme owl-loaded owl-drag">
+				{data.allStrapiPercaysoteam.nodes.map(percaysoTeam => (
+					<div className="item" key={percaysoTeam.strapiId}>
+						<div className="image-box">
+							<img src={percaysoTeam.featuredimage.publicURL} alt="" width="270" height="404" />
+						</div>
+						<div className="overlay-box">
+							<div className="inner-details">
+								<h4>{percaysoTeam.name}</h4>
+								<span className="small-title">{percaysoTeam.profession}</span>
+								<p dangerouslySetInnerHTML={{__html: percaysoTeam.aboutmember }} />
+								<div className="share-box"><Link to="{percaysoTeam.linkdinurl}" target="_blank" rel="noreferrer"><img src={linkdinImage} alt="" /></Link></div>
+							</div>
+						</div>
+					</div>
+				))}
 			</div>
+		</div>
+	</div>
+	<div className="section percayso-news">
+		<div className="container" id="secLatestNews">
+			<h2 className="heading-h2">{data.strapiHomePageOtherSettings.latestnewstitle}</h2>
+			<h3 dangerouslySetInnerHTML={{__html: data.strapiHomePageOtherSettings.latestnewssubtitle }} />
+			<div className="news-slider owl-carousel owl-theme owl-loaded owl-drag">
+				{data.allStrapiLatestNews.nodes.map(latestNews => (
+					<div className="item" key={latestNews.strapiId}>
+						<div className="blog-thumb">
+							<img src={latestNews.newsfeaturedimage.publicURL} alt="" width="390" height="415" />
+						</div>
+						<div className="blog-info">
+							<h4>{latestNews.newstitle}</h4>
+							<p dangerouslySetInnerHTML={{__html: latestNews.newsdescription.substring(0, 100) }} />
+							<div className="blog-info-bottom">
+								<div className="author">
+									<span className="author-image">
+										<img src={latestNews.authorimage.publicURL} alt="" width="25" height="25" />
+									</span>
+									<span className="author-name">{latestNews.authorname}</span>
+								</div>
+								<div className="date">{latestNews.newsdate}</div>
+							</div>
+						</div>
+						<div className="button-container">
+							<Link to="#" className="button">
+							  Read full article
+							</Link>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</div>
+	<div className="section percayso-career" id="secCareer">
+		<div className="container">
+			<div className="career-tab-col">
+				<h2 className="heading-h2">{data.strapiHomePageOtherSettings.careerheading}</h2>
+				<p dangerouslySetInnerHTML={{__html: data.strapiHomePageOtherSettings.careersubheading }} />
+				<ul className="tabs">
+					{data.allStrapiCareer.nodes.map(careerNews => (
+					<li rel={'tab' + careerNews.strapiId} key={careerNews.strapiId}><span>{careerNews.careertitle}</span></li>
+					))}
+				</ul>
+			</div>
+			<div className="tab_container">
+				{data.allStrapiCareer.nodes.map(careerNews => (
+					<div id={'tab' + careerNews.strapiId} rel={'tab' + careerNews.strapiId} className="tab_content" key={careerNews.strapiId}>
+						<Link to="#" className="close-btn">x</Link>
+						<h2>{careerNews.title}</h2>
+						<div className="scroll-content mCustomScrollbar" dangerouslySetInnerHTML={{__html: careerNews.careerdescription}}></div>
+						<div className="job-apply" dangerouslySetInnerHTML={{__html: careerNews.howtoapply}}></div>
+					</div>
+				))}
+			</div>
+		</div>
+	</div>
+	<div className="section home-contact" id="secContact">
+		<div className="container">
+			<h2 className="heading-h2">{data.strapiHomePageOtherSettings.contactusheading}</h2>
+			<p dangerouslySetInnerHTML={{__html: data.strapiHomePageOtherSettings.contactussubheading}}></p>
+			<div className="button-container">
+			  <Link to="#" className="button talk-modal-open">Let's talk</Link>
+			</div>
+		</div>
+		<div className="map-bolck">
+			<div className="map-pin"><img src={data.strapiHomePageOtherSettings.googlemappointerimg.publicURL} alt="" width="55" height="66" /></div>
+			<div className="map-button"><Link to={data.strapiHomePageOtherSettings.googlemapurl} className="button" target="_blank">Open on Google Maps</Link></div>
 		</div>
 	</div>
   </Layout>
@@ -206,6 +293,55 @@ query MyQuery {
     Description
     whowearetitle
     whowearedeatils
+	latestnewstitle
+    latestnewssubtitle
+    careerheading
+    careersubheading
+	contactusheading
+    contactussubheading
+    googlemappointerimg {
+      extension
+      publicURL
+    }
+    googlemapurl
+  }
+  allStrapiPercaysoteam {
+    nodes {
+      name
+      aboutmember
+      profession
+      linkdinurl
+	  strapiId
+      featuredimage {
+        extension
+        publicURL
+      }
+    }
+  }
+  allStrapiLatestNews (sort: {fields: newsdate, order: DESC}) {
+    nodes {
+	  strapiId
+      newstitle
+      newsdescription
+      authorname
+      newsdate(formatString: "DD MMM, YYYY")
+      authorimage {
+        extension
+        publicURL
+      }
+      newsfeaturedimage {
+        extension
+        publicURL
+      }
+    }
+  }
+  allStrapiCareer {
+    nodes {
+      strapiId
+      careertitle
+      careerdescription
+      howtoapply
+    }
   }
 }
 `

@@ -105,6 +105,15 @@ p {
     font-size: 18px;
     color: #7a7a7a;
 }
+.intro-row p,
+.what-impact p,
+.data-enrichment p,
+.about-percayso p,
+.home-contact p,
+.insurers-steps p{line-height: 30px; font-size: 22px; padding: 20px 0;}
+b, strong {
+	font-family: 'Greycliff CF Demi';
+}
 body {
     font-family: 'Greycliff CF';
     font-weight: normal;
@@ -924,16 +933,8 @@ a.button {
 
 
 
-.insurers-steps {background-image: url(../images/divider-shape-2.svg);}
-.insurers-steps h2.heading-h2 {color: #393939;}
-.intro-row p, .what-impact p, .data-enrichment p, .about-percayso p, .home-contact p, .insurers-steps p {
-	line-height: 30px;
-	font-size: 22px;
-	padding: 20px 0;
-}
-b, strong {
-	font-family: 'Greycliff CF Demi';
-}
+.insurers-steps {padding-top: 50px;}
+.insurers-steps h2.heading-h2{color: #393939;}
 .insurers-steps .steps{margin: 40px -30px; display: flex; flex-flow: row wrap;}
 .insurers-steps .steps li{
 	width:calc((100% - (60px * 3)) / 3);
@@ -998,31 +999,6 @@ b, strong {
 @media screen and (max-width:767px) {
 	.insurers-steps .steps{margin: 0 -10px}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*.insurers-steps {
@@ -1764,4 +1740,67 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9a1f1c', end
 }
 .abt-color {
 	color: #fa4879;
+}
+.talk-modal-active .modal-overlay, .talk-modal-active .talk-modal-wrapper, .see-modal-active .modal-overlay, .see-modal-active .see-modal-wrapper {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(124, 58, 116, 0.9);
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 6;
+    opacity: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    visibility: hidden;
+}
+.modal-box {
+    max-width: 800px;
+    width: 100%;
+    background: #fff;
+    min-height: 200px;
+    position: fixed;
+    z-index: 7;
+    left: 50%;
+    top: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.talk-modal {
+    display: flex;
+}
+.talk-modal .heading-col {
+    text-align: center;
+    width: 325px;
+    background: #fff;
+    order: 2;
+    padding: 55px 20px;
+}
+.talk-modal .talk-form {
+    width: calc(100% - 325px);
+    background: #fa4879;
+    padding: 50px;
+    order: 1;
+}
+.modal-box h2 {
+    color: #fa4879;
+    font-size: 60px;
+    font-weight: 900;
+    letter-spacing: -3px;
+    padding: 10px 0;
+    line-height: 100%;
+}
+.modal-box p {
+    font-size: 16px;
+    padding: 10px 0;
 }
