@@ -9,7 +9,7 @@ import "./assets/owl.carousel.js"
 
 const IndexPage = ({data}) => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="Home" /> 
 	<div className="section intro-row" id="secIntro">
 		<div className="container">
 			<div className="text-col">
