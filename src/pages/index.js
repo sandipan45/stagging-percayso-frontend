@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 
 import linkdinImage from "../images/linkedin-icon2.png"
 import "./assets/owl.carousel.min.css"
+import  './assets/owl-carousel'
 
 const IndexPage = ({data}) => (
   <Layout>
