@@ -314,7 +314,7 @@ query MyQuery {
     }
     googlemapurl
   }
-  allStrapiPercaysoteam {
+  allStrapiPercaysoteam(sort: {fields: strapiId, order: ASC}) {
     nodes {
       name
       aboutmember
