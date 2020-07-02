@@ -139,7 +139,7 @@ const Layout = ({ children }) => {
 	  containerClasses="cn-top cookie-notice"
 	  expires={150}
 	>
-		  <span id="cn-notice-text">We use cookies to offer you a better experience. By continuing to use this website, you consent to the use of cookies in accordance with our <Link to="#">Cookie Policy</Link>.</span>
+		  <span id="cn-notice-text" dangerouslySetInnerHTML={{__html: data.strapiHomePageOtherSettings.cookietext}} />
 	</CookieConsent>
     </>
   )
