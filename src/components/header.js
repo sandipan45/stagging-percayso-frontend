@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import React from "react"
 import { useStaticQuery} from "gatsby"
 
+
 const Header = ({data}) => {
 	const dataheader = useStaticQuery(graphql`
     query siteTitleQueryAndSiteTitleQuery {

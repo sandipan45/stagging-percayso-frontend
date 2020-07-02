@@ -2,9 +2,13 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { Scrollbars } from 'react-custom-scrollbars';
+
+import {fromNewsSlugToUrl} from '../utils/news'
 
 import linkdinImage from "../images/linkedin-icon2.png"
 import "./assets/owl.carousel.min.css"
+import "./assets/scrollbar.css"
 
 const IndexPage = ({data}) => (
   <Layout>
@@ -32,13 +36,13 @@ const IndexPage = ({data}) => (
             <p dangerouslySetInnerHTML={{__html: data.strapiAboutPercayso.percaysointoleft }} />
         </div>
 		<div className="circle-in percayso-inform">
-            <Link to="{data.strapiAboutPercayso.percaysoinformlink}" target="_blank">
+            <Link to={data.strapiAboutPercayso.percaysoinformlink} target="_blank">
               <p dangerouslySetInnerHTML={{__html: data.strapiAboutPercayso.percaysoinformtext }} />
               <span className="percayso-logo"><img src={data.strapiAboutPercayso.parcaysoinformlogo.publicURL} alt="" /></span>
             </Link>
         </div>
 		<div className="circle-in percayso-business">
-            <Link to="{data.strapiAboutPercayso.percaysobusinesslink}" target="_blank">
+            <Link to={data.strapiAboutPercayso.percaysobusinesslink} target="_blank">
               <p dangerouslySetInnerHTML={{__html: data.strapiAboutPercayso.percaysobusinesstext }} />
               <span className="percayso-logo"><img src={data.strapiAboutPercayso.percaysobusinesslogo.publicURL} alt="" /></span>
             </Link>
@@ -50,7 +54,7 @@ const IndexPage = ({data}) => (
             <p dangerouslySetInnerHTML={{__html: data.strapiAboutPercayso.percaysocommlefttext }} />
         </div>
 		<div className="circle-in percayso-community">
-            <Link to="{data.strapiAboutPercayso.percaysocommlink}" target="_blank">
+            <Link to={data.strapiAboutPercayso.percaysocommlink} target="_blank">
               <p dangerouslySetInnerHTML={{__html: data.strapiAboutPercayso.percaysocommutext }} />
               <span className="percayso-logo"><img src={data.strapiAboutPercayso.percaysocommlogo.publicURL} alt="" /></span>
             </Link>
@@ -132,7 +136,7 @@ const IndexPage = ({data}) => (
 								<h4>{percaysoTeam.name}</h4>
 								<span className="small-title">{percaysoTeam.profession}</span>
 								<p dangerouslySetInnerHTML={{__html: percaysoTeam.aboutmember }} />
-								<div className="share-box"><Link to="{percaysoTeam.linkdinurl}" target="_blank" rel="noreferrer"><img src={linkdinImage} alt="" /></Link></div>
+								<div className="share-box"><Link to={percaysoTeam.linkdinurl} target="_blank" rel="noreferrer"><img src={linkdinImage} alt="" /></Link></div>
 							</div>
 						</div>
 					</div>
@@ -164,12 +168,13 @@ const IndexPage = ({data}) => (
 							</div>
 						</div>
 						<div className="button-container">
-							<Link to="#" className="button">
+							<Link to={fromNewsSlugToUrl(latestNews.slug)} className="button">
 							  Read full article
 							</Link>
 						</div>
 					</div>
 				))}
+				
 			</div>
 		</div>
 	</div>
@@ -188,8 +193,13 @@ const IndexPage = ({data}) => (
 				{data.allStrapiCareer.nodes.map(careerNews => (
 					<div id={'tab' + careerNews.strapiId} rel={'tab' + careerNews.strapiId} className="tab_content" key={careerNews.strapiId}>
 						<Link to="#" className="close-btn">x</Link>
-						<h2>{careerNews.title}</h2>
-						<div className="scroll-content mCustomScrollbar" dangerouslySetInnerHTML={{__html: careerNews.careerdescription}}></div>
+						<h2>{careerNews.careertitle}</h2>
+						<Scrollbars style={{ width:500, height: 600 }}
+							renderThumbVertical={({ style, ...props }) =>
+							<div {...props} style={{ ...style, backgroundColor: 'red' }}/>}
+						>
+							<div className="scroll-content mCustomScrollbar" dangerouslySetInnerHTML={{__html: careerNews.careerdescription}}></div>
+						</Scrollbars>
 						<div className="job-apply" dangerouslySetInnerHTML={{__html: careerNews.howtoapply}}></div>
 					</div>
 				))}
@@ -319,6 +329,8 @@ query MyQuery {
   }
   allStrapiLatestNews (sort: {fields: newsdate, order: DESC}) {
     nodes {
+	  id
+	  slug
 	  strapiId
       newstitle
       newsdescription

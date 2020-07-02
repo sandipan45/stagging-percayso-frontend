@@ -24,6 +24,7 @@ export const onInitialClientRender = () => {
 			$(".notification-bar").hide();
         });
 		
+		
 		$('#team-slider').owlCarousel({
 		loop: true,
 		margin: 0,
