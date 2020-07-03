@@ -207,7 +207,7 @@ const IndexPage = ({data}) => (
 		</div>
 	</div>
 	<div className="section home-contact" id="secContact">
-		<div className="container">
+		<div className="container"> 
 			<h2 className="heading-h2">{data.strapiHomePageOtherSettings.contactusheading}</h2>
 			<p dangerouslySetInnerHTML={{__html: data.strapiHomePageOtherSettings.contactussubheading}}></p>
 			<div className="button-container">
