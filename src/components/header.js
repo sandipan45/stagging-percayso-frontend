@@ -25,7 +25,7 @@ const Header = ({data}) => {
 		<div className="container">
 			<p dangerouslySetInnerHTML={{__html: dataheader.strapiHome.topnotification }} /> 
 		</div>
-		<Link to="#" className="notification-close">x</Link>
+		<Link to="/" className="notification-close">x</Link>
 	</div>
 	<div className="header-main">
 		<div className="container">

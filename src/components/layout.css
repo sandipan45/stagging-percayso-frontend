@@ -2587,3 +2587,89 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9a1f1c', end
 .mCSB_scrollTools_vertical {display: block;}
 .mCSB_dragger{position: absolute; min-height: 30px; top: 34px; display: block; height: 172px; max-height: 630px;}
 .mCSB_dragger_bar{line-height: 30px;}
+.zzz {
+	background-color: #fa4879 !important;
+	width: 22px !important;
+	border-radius: 8px;
+	right: 15px;
+}
+.ppp {
+	width: 100% !important;
+	background: url(../images/sl-line.jpg) right 8px top repeat-y;
+}
+.scroll-content {
+	padding-right: 7%;
+}
+@media screen and (max-width:730px) {
+	.percayso-career{min-height: 850px; padding-top: 30px;}
+	.percayso-career ul.tabs{width: 100%; padding-top: 20px;}
+	.percayso-career ul.tabs li.active:after { display: none;}
+	.percayso-career ul.tabs li{font-size: 18px; letter-spacing: 0;  background-position: 0 5px;}
+	.career-tab-col p{font-size: 18px; letter-spacing: 0; line-height: 24px; color: #ccc;}
+	.percayso-career .tab_container{width: 100%;}
+	.percayso-career .tab_content{padding: 20px; border: 0; background: rgba(0, 0, 0, 0.9);}
+	.percayso-career .tab_content h2{font-size: 24px; padding-bottom: 25px; padding-top: 5px;}
+	.percayso-career .tab_content h3{font-size: 16px; padding: 10px 0;}
+	.percayso-career .tab_content p{padding: 10px 0;}
+	.close-btn{top: 25px; right: 12px;}
+	.zzz {
+	background-color: #fa4879 !important;
+	width: 22px !important;
+	border-radius: 8px;
+	right: 15px;
+}
+}
+@media screen and (max-width:991px) {
+.percayso-intro-diagram .circle-in {
+	position: static;
+	text-align: center;
+	margin: 0 auto;
+}
+.percayso-intro-diagram::before {
+	display: none;
+}
+.percayso-intro-diagram .middle-circle {
+	position: static;
+	width: 350px;
+	height: 350px;
+	margin: 0 auto;
+}
+.percayso-intro-diagram .middle-circle::before, .percayso-intro-diagram .middle-circle::after {
+	display: none;
+}
+.percayso-intro-diagram {
+	margin-bottom: 100px;
+}
+.corporate-circle .percayso-main-logo, .corporate-circle .percayso-partner-connect {
+	position: static;
+	margin: 0 auto;
+	display: block;
+	transform: translateX(0%);
+}
+.corporate-circle .column {
+	width: 100%;
+	display: block;
+}
+.corporate-circle .bottom-main {
+	width: 100%;
+	display: block;
+	justify-content: space-between;
+	position: static;
+}
+.corporate-circle {
+	display: block;
+}
+.corporate-circle .percayso-partner-connect::after {
+	display: none;
+}
+.corporate-circle .circle-in.percayso-inform, .corporate-circle .circle-in.percayso, .corporate-circle .circle-in.percayso-community, .corporate-circle .circle-in.percayso-business {
+	margin: 0 auto;
+	z-index: 999;
+}
+.corporate-circle .bottom-main::before, .corporate-circle .bottom-main::after {
+	display: none;
+}
+}
+
+
+

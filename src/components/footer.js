@@ -88,7 +88,7 @@ return (
 									<span className="wpcf7-form-control-wrap checkbox-group">
 										<span className="wpcf7-form-control wpcf7-acceptance optional">
 											<span className="wpcf7-list-item">
-												<input type="checkbox" name="checkbox-group" value="1" aria-label="Investing" id="test1" />
+												<input type="checkbox" name="checkbox-1" value="1" aria-label="Investing" id="test1" onClick={ (event) => { this.handleCheckbox('checkbox-1', event) }} />
 												<span className="wpcf7-list-item-label">Investing</span>
 											</span>
 										</span>
@@ -98,7 +98,7 @@ return (
 									<span className="wpcf7-form-control-wrap checkbox-group-1">
 										<span className="wpcf7-form-control wpcf7-acceptance optional">
 											<span className="wpcf7-list-item">
-												<input type="checkbox" name="checkbox-group-1" value="1" aria-label="Investing" id="test2" />
+												<input type="checkbox" name="checkbox-2" value="1" aria-label="Investing" id="test2"  />
 												<span className="wpcf7-list-item-label">Introducing investors</span>
 											</span>
 										</span>

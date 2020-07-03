@@ -7,8 +7,8 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import CookieConsent, { Cookies } from "react-cookie-consent";
+import { useStaticQuery, graphql, Link} from "gatsby"
+import CookieConsent from "react-cookie-consent";
 
 import Header from "./header"
 import Footer from "./footer"
@@ -46,15 +46,15 @@ const Layout = ({ children }) => {
 				<h3>{data.strapiHome.bannertexttwo}</h3>
 			</div>
 			<div className="scroll-down">
-				<a href="#secIntro">
+				<Link to="/#secIntro">
 					<img src={scrollDownIcon} alt="Scroll" />
-				</a>
+				</Link>
 			</div>       
 			<div className="video-load" id="video-viewport" style={{
 				width: `1349px`,
 				height: `388px`
 			}}>
-				<video id="example_video_1" className="slider-video" width="640" height="360" autoPlay muted loop preload style={{
+				<video id="example_video_1" className="slider-video" width="640" height="360" autoPlay muted loop preload="true" style={{
 				width: `1349px`,
 				height: `758.813px`
 				}}>
@@ -75,6 +75,7 @@ const Layout = ({ children }) => {
 	  buttonText="Accept"
 	  disableStyles={true}
 	  cookieName="myAwesomeCookieName2"
+	  buttonWrapperClasses="container"
 	  buttonClasses="cn-set-cookie button"
 	  contentClasses="container"
 	  containerClasses="cn-top cookie-notice"

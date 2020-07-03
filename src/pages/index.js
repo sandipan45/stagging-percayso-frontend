@@ -156,7 +156,7 @@ const IndexPage = ({data}) => (
 						</div>
 						<div className="blog-info">
 							<h4>{latestNews.newstitle}</h4>
-							<p dangerouslySetInnerHTML={{__html: latestNews.newsdescription.substring(0, 100) }} />
+							<p dangerouslySetInnerHTML={{__html: latestNews.newssmalldescription }} />
 							<div className="blog-info-bottom">
 								<div className="author">
 									<span className="author-image">
@@ -194,9 +194,9 @@ const IndexPage = ({data}) => (
 					<div id={'tab' + careerNews.strapiId} rel={'tab' + careerNews.strapiId} className="tab_content" key={careerNews.strapiId}>
 						<Link to="#" className="close-btn">x</Link>
 						<h2>{careerNews.careertitle}</h2>
-						<Scrollbars style={{ width:500, height: 600 }}
+						<Scrollbars className="ppp" style={{ width:500, height: 600 }}
 							renderThumbVertical={({ style, ...props }) =>
-							<div {...props} style={{ ...style, backgroundColor: 'red' }}/>}
+							<div className="zzz" {...props} style={{ ...style, backgroundColor: 'red' }}/>}
 						>
 							<div className="scroll-content mCustomScrollbar" dangerouslySetInnerHTML={{__html: careerNews.careerdescription}}></div>
 						</Scrollbars>
@@ -333,6 +333,7 @@ query MyQuery {
 	  slug
 	  strapiId
       newstitle
+	  newssmalldescription
       newsdescription
       authorname
       newsdate(formatString: "DD MMM, YYYY")

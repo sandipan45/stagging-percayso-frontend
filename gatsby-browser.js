@@ -24,6 +24,19 @@ export const onInitialClientRender = () => {
 			$(".notification-bar").hide();
         });
 		
+		$('a[href*=\\#]:not([href=\\#])').click(function() {
+			if (window.location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && window.location.hostname == this.hostname) {
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			if (target.length) {        
+			$('html,body').animate({
+			scrollTop: target.offset().top-114
+			}, 1000);
+			return false;
+			}
+			}
+		});
+		
 		
 		$('#team-slider').owlCarousel({
 		loop: true,
@@ -87,13 +100,15 @@ export const onInitialClientRender = () => {
 		  $(this).addClass("active");
 		});
 		   
-		$(".close-btn").click(function() {
+		$(".close-btn").click(function(e) {
+		  e.preventDefault();
 		  $(".tab_content").hide();
 		  $("ul.tabs li").removeClass("active"); 
 		  $(".tab_container").removeClass("tab_container_active");  
 		});
 		
-		$(".talk-modal-open").click(function () {       
+		$(".talk-modal-open").click(function (e) { 
+		  e.preventDefault();
 		  $('html').addClass('talk-modal-active');  
 		  setTimeout(function(){      
 			$('#first-text').trigger('touchstart');   
