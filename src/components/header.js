@@ -1,5 +1,5 @@
-import { Link } from "gatsby"
 import React from "react"
+import { graphql, Link } from "gatsby"
 import { useStaticQuery} from "gatsby"
 import Modal from 'react-modal'
 
