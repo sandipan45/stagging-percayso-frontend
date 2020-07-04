@@ -830,6 +830,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1000000', e
 }
 .slider-box .overlay-box .inner-details .share-box img{ width: auto !important;}
 .slider-box .owl-carousel .owl-nav .owl-next, 
+.slider-box .owl-carousel .owl-nav .owl-next:hover,
+.slider-box .owl-carousel .owl-nav .owl-prev:hover, 
 .slider-box .owl-carousel .owl-nav .owl-prev{
 	top: 40%;  
 	position: absolute; 
@@ -843,11 +845,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1000000', e
 	transform: translateY(-50%); 
 	text-indent: -9999px;
 }
-.slider-box .owl-carousel .owl-nav .owl-next{ 
+.slider-box .owl-carousel .owl-nav .owl-next,
+.slider-box .owl-carousel .owl-nav .owl-next:hover{ 
 	right: 0px; 
 	background: #fa4879 url(../images/arrow-next.png) no-repeat 16px 23px;
 }
-.slider-box .owl-carousel .owl-nav .owl-prev{
+.slider-box .owl-carousel .owl-nav .owl-prev,
+.slider-box .owl-carousel .owl-nav .owl-prev:hover{
 	left:0px;
 	background: #fa4879 url(../images/arrow-prev.png) no-repeat 11px 23px;
 }
@@ -1402,7 +1406,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1000000', e
 
 
 
-.modal-overlay{
+.modal-overlay,.Overlay {
 	width: 100%;
 	height: 100%;
 	background: rgba(124, 58, 116, 0.9);
@@ -1427,8 +1431,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1000000', e
 	z-index: 7;
 	left: 50%;
 	top: 50%;
-	opacity: 0;
-	visibility: hidden;
+	/*opacity: 0;
+	visibility: hidden;*/
 	transform: translate(-50%, -50%);
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
@@ -2587,13 +2591,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9a1f1c', end
 .mCSB_scrollTools_vertical {display: block;}
 .mCSB_dragger{position: absolute; min-height: 30px; top: 34px; display: block; height: 172px; max-height: 630px;}
 .mCSB_dragger_bar{line-height: 30px;}
-.zzz {
+.scroller-div {
 	background-color: #fa4879 !important;
 	width: 22px !important;
 	border-radius: 8px;
 	right: 15px;
 }
-.ppp {
+.scroller-outer {
 	width: 100% !important;
 	background: url(../images/sl-line.jpg) right 8px top repeat-y;
 }

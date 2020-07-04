@@ -8,7 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql, Link} from "gatsby"
-import CookieConsent from "react-cookie-consent";
+import CookieConsent from "react-cookie-consent"
 
 import Header from "./header"
 import Footer from "./footer"

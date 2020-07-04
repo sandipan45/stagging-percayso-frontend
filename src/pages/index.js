@@ -2,15 +2,78 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Scrollbars } from 'react-custom-scrollbars';
+import { Scrollbars } from 'react-custom-scrollbars'
+import Modal from 'react-modal'
+
+import OwlCarousel from 'react-owl-carousel-loop'
+import 'owl.carousel/dist/assets/owl.carousel.css'
+import 'owl.carousel/dist/assets/owl.theme.default.css'
 
 import {fromNewsSlugToUrl} from '../utils/news'
 
 import linkdinImage from "../images/linkedin-icon2.png"
-import "./assets/owl.carousel.min.css"
+import emailIcon from "../images/email-icon.png"
 import "./assets/scrollbar.css"
 
-const IndexPage = ({data}) => (
+const options = {
+    responsiveClass: true,
+    nav: true,
+    dots: false,
+    autoplay: false,
+    responsive: {
+        0: {
+            items: 1
+        },
+        359: {
+            items: 2
+        },
+        550: {
+            items: 3
+        },
+        989: {
+            items:5
+
+        }
+    },
+};
+const newsoptions = {
+    responsiveClass: true,
+    nav: false,
+    dots: false,
+    autoplay: true,
+    responsive: {
+        0: {
+            items: 1,
+			margin: 20
+        },
+        470: {
+            items: 2,
+			margin: 20
+        },
+        767: {
+            items: 2,
+			margin: 60
+        },
+        989: {
+            items:3,
+			margin: 20,
+			autoplay : false,
+			touchDrag: false
+
+        }
+    },
+};
+
+const IndexPage = ({data}) => {
+const [modalIsOpen,setIsOpen] = React.useState(false);
+  function openModal() {
+    setIsOpen(true);
+  }
+ 
+  function closeModal(){
+    setIsOpen(false);
+  }
+  return (
   <Layout>
     <SEO title="Home" /> 
 	<div className="section intro-row" id="secIntro">
@@ -125,7 +188,12 @@ const IndexPage = ({data}) => (
 	</div>
 	<div className="section percayso-team" id="secMeetTeam">
 		<div className="slider-box">
-			<div id="team-slider" className="owl-carousel owl-theme owl-loaded owl-drag">
+			<OwlCarousel
+					className="owl-theme"
+					loop
+					items={5}
+					{...options}
+				>
 				{data.allStrapiPercaysoteam.nodes.map(percaysoTeam => (
 					<div className="item" key={percaysoTeam.strapiId}>
 						<div className="image-box">
@@ -141,14 +209,18 @@ const IndexPage = ({data}) => (
 						</div>
 					</div>
 				))}
-			</div>
+				</OwlCarousel>
 		</div>
 	</div>
 	<div className="section percayso-news">
 		<div className="container" id="secLatestNews">
 			<h2 className="heading-h2">{data.strapiHomePageOtherSettings.latestnewstitle}</h2>
 			<h3 dangerouslySetInnerHTML={{__html: data.strapiHomePageOtherSettings.latestnewssubtitle }} />
-			<div className="news-slider owl-carousel owl-theme owl-loaded owl-drag">
+			<OwlCarousel
+					className="news-slider owl-theme"
+					loop
+					{...newsoptions}					
+				>
 				{data.allStrapiLatestNews.nodes.map(latestNews => (
 					<div className="item" key={latestNews.strapiId}>
 						<div className="blog-thumb">
@@ -175,7 +247,7 @@ const IndexPage = ({data}) => (
 					</div>
 				))}
 				
-			</div>
+			</OwlCarousel>
 		</div>
 	</div>
 	<div className="section percayso-career" id="secCareer">
@@ -194,9 +266,12 @@ const IndexPage = ({data}) => (
 					<div id={'tab' + careerNews.strapiId} rel={'tab' + careerNews.strapiId} className="tab_content" key={careerNews.strapiId}>
 						<Link to="#" className="close-btn">x</Link>
 						<h2>{careerNews.careertitle}</h2>
-						<Scrollbars className="ppp" style={{ width:500, height: 600 }}
-							renderThumbVertical={({ style, ...props }) =>
-							<div className="zzz" {...props} style={{ ...style, backgroundColor: 'red' }}/>}
+						
+						<Scrollbars className="scroller-outer" style={{ width:500, height: 600 }}
+						renderThumbVertical={({ style, ...props }) =>
+							<div {...props} style={{ ...style, width: '22px', borderRadius: '8px', right: '15px', display: 'block', height: '149px', transform:'translateY(0px)', backgroundColor: '#fa4879'  }}/>
+						}
+						
 						>
 							<div className="scroll-content mCustomScrollbar" dangerouslySetInnerHTML={{__html: careerNews.careerdescription}}></div>
 						</Scrollbars>
@@ -211,16 +286,85 @@ const IndexPage = ({data}) => (
 			<h2 className="heading-h2">{data.strapiHomePageOtherSettings.contactusheading}</h2>
 			<p dangerouslySetInnerHTML={{__html: data.strapiHomePageOtherSettings.contactussubheading}}></p>
 			<div className="button-container">
-			  <Link to="#" className="button talk-modal-open">Let's talk</Link>
+			  <Link to="#" className="button talk-modal-open" onClick={openModal}>Let's talk</Link>
 			</div>
 		</div>
+		<Modal
+				  isOpen={modalIsOpen}
+				  onRequestClose={closeModal}
+				  ariaHideApp={false}
+				  style={{
+						overlay: {
+							opacity: '1',
+							visibility: 'visible'
+						}
+				  }}
+				  overlayClassName="modal-overlay"
+				  className="modal-box talk-modal-wrapper"
+			   >
+				<div className="talk-modal">
+					<div className="heading-col">
+						<i><img src={emailIcon} alt="" /></i>
+						<h2>Let's go</h2>
+						<p>Please provide your details and investment preferences and one of our team will respond by email</p>
+					</div>
+					<div className="talk-form">
+						<div role="form" className="wpcf7" id="wpcf7-f967-o1" lang="en" dir="ltr">
+							<form action="https://www.flexyform.com/f/99e2c8ef90906c84d1ff5a8b0d525360bab12abb" method="post" className="wpcf7-form">
+								<div className="contactform-field input-text">
+									<input type="text" name="fullname" size="40" className="wpcf7-form-control input-fld" id="first-text" aria-label="Name" placeholder="Name" />
+								</div>
+								<div className="contactform-field input-text">
+									<input type="text" name="address" size="40" className="wpcf7-form-control input-fld" aria-label="Address" placeholder="Address" />
+								</div>
+								<div className="contactform-field input-email">
+									<input type="email" name="email" size="40" className="wpcf7-form-control input-fld" aria-label="Email address" placeholder="Email address" />
+								</div>
+								<div className="contactform-field input-number">
+									<input type="number" name="phone" className="wpcf7-form-control input-fld" aria-label="Phone number" placeholder="Phone number" />
+								</div>
+								<div className="contactform-field input-text">
+									<input type="text" name="code" size="40" className="wpcf7-form-control input-fld" aria-label="Introducer code" placeholder="Introducer code" />
+								</div>
+								<div className="interested">
+									<p>I am interested in</p>
+									<div className="row">
+										<span className="wpcf7-form-control-wrap checkbox-group">
+											<span className="wpcf7-form-control wpcf7-acceptance optional">
+												<span className="wpcf7-list-item">
+													<input type="checkbox" name="checkbox-1" value="1" aria-label="Investing" id="test1" onClick={ (event) => { this.handleCheckbox('checkbox-1', event) }} />
+													<span className="wpcf7-list-item-label">Investing</span>
+												</span>
+											</span>
+										</span>	
+									</div>
+									<div className="row">
+										<span className="wpcf7-form-control-wrap checkbox-group-1">
+											<span className="wpcf7-form-control wpcf7-acceptance optional">
+												<span className="wpcf7-list-item">
+													<input type="checkbox" name="checkbox-2" value="1" aria-label="Investing" id="test2"  />
+													<span className="wpcf7-list-item-label">Introducing investors</span>
+												</span>
+											</span>
+										</span>	
+									</div>
+								</div>
+								<div className="contactform-field submit-button">
+									<input type="submit" value="Submit" aria-label="Submit" className="wpcf7-form-control submit-btn" />
+								</div>
+							</form>
+						</div>
+				</div>
+			</div>
+        </Modal>
 		<div className="map-bolck">
 			<div className="map-pin"><img src={data.strapiHomePageOtherSettings.googlemappointerimg.publicURL} alt="" width="55" height="66" /></div>
 			<div className="map-button"><Link to={data.strapiHomePageOtherSettings.googlemapurl} className="button" target="_blank">Open on Google Maps</Link></div>
 		</div>
 	</div>
   </Layout>
-)
+  )
+}
 
 export default IndexPage
 
@@ -314,7 +458,7 @@ query MyQuery {
     }
     googlemapurl
   }
-  allStrapiPercaysoteam(sort: {fields: strapiId, order: ASC}) {
+  allStrapiPercaysoteam(sort: {fields: teamorder, order: ASC}) {
     nodes {
       name
       aboutmember

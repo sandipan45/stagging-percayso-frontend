@@ -1,6 +1,9 @@
 import { Link } from "gatsby"
 import React from "react"
 import { useStaticQuery} from "gatsby"
+import Modal from 'react-modal'
+
+import emailIcon from "../images/email-icon.png"
 
 
 const Header = ({data}) => {
@@ -9,7 +12,7 @@ const Header = ({data}) => {
 	  strapiHome {
 		topnotification
 	  }
-	  allStrapiArticle {
+	  allStrapiArticle(sort: {fields: menuorder, order: ASC}) {
 		nodes {
 		  Title
 		  Link
@@ -18,15 +21,92 @@ const Header = ({data}) => {
 	  }
     }
   `)
+
+const [modalIsOpen,setIsOpen] = React.useState(false);
+  function openModal() {
+    setIsOpen(true);
+  }
+ 
+  function closeModal(){
+    setIsOpen(false);
+  }
 	return (
 		<>
 			<header id="masthead" className="site-header">
-	<div className="notification-bar">
-		<div className="container">
-			<p dangerouslySetInnerHTML={{__html: dataheader.strapiHome.topnotification }} /> 
-		</div>
-		<Link to="/" className="notification-close">x</Link>
-	</div>
+				<div className="notification-bar">
+					<div className="container" id="talk-modal-open">
+					<p>{dataheader.strapiHome.topnotification} <Link to="#" onClick={openModal}>click here</Link></p>
+					</div>
+					<Link to="/" className="notification-close">x</Link>
+				</div>
+				<Modal
+				  isOpen={modalIsOpen}
+				  onRequestClose={closeModal}
+				  ariaHideApp={false}
+				  style={{
+						overlay: {
+							opacity: '1',
+							visibility: 'visible'
+						}
+				  }}
+				  overlayClassName="modal-overlay"
+				  className="modal-box talk-modal-wrapper"
+			   >
+				<div className="talk-modal">
+					<div className="heading-col">
+						<i><img src={emailIcon} alt="" /></i>
+						<h2>Let's go</h2>
+						<p>Please provide your details and investment preferences and one of our team will respond by email</p>
+					</div>
+					<div className="talk-form">
+						<div role="form" className="wpcf7" id="wpcf7-f967-o1" lang="en" dir="ltr">
+							<form action="https://www.flexyform.com/f/99e2c8ef90906c84d1ff5a8b0d525360bab12abb" method="post" className="wpcf7-form">
+								<div className="contactform-field input-text">
+									<input type="text" name="fullname" size="40" className="wpcf7-form-control input-fld" id="first-text" aria-label="Name" placeholder="Name" />
+								</div>
+								<div className="contactform-field input-text">
+									<input type="text" name="address" size="40" className="wpcf7-form-control input-fld" aria-label="Address" placeholder="Address" />
+								</div>
+								<div className="contactform-field input-email">
+									<input type="email" name="email" size="40" className="wpcf7-form-control input-fld" aria-label="Email address" placeholder="Email address" />
+								</div>
+								<div className="contactform-field input-number">
+									<input type="number" name="phone" className="wpcf7-form-control input-fld" aria-label="Phone number" placeholder="Phone number" />
+								</div>
+								<div className="contactform-field input-text">
+									<input type="text" name="code" size="40" className="wpcf7-form-control input-fld" aria-label="Introducer code" placeholder="Introducer code" />
+								</div>
+								<div className="interested">
+									<p>I am interested in</p>
+									<div className="row">
+										<span className="wpcf7-form-control-wrap checkbox-group">
+											<span className="wpcf7-form-control wpcf7-acceptance optional">
+												<span className="wpcf7-list-item">
+													<input type="checkbox" name="checkbox-1" value="1" aria-label="Investing" id="test1" onClick={ (event) => { this.handleCheckbox('checkbox-1', event) }} />
+													<span className="wpcf7-list-item-label">Investing</span>
+												</span>
+											</span>
+										</span>	
+									</div>
+									<div className="row">
+										<span className="wpcf7-form-control-wrap checkbox-group-1">
+											<span className="wpcf7-form-control wpcf7-acceptance optional">
+												<span className="wpcf7-list-item">
+													<input type="checkbox" name="checkbox-2" value="1" aria-label="Investing" id="test2"  />
+													<span className="wpcf7-list-item-label">Introducing investors</span>
+												</span>
+											</span>
+										</span>	
+									</div>
+								</div>
+								<div className="contactform-field submit-button">
+									<input type="submit" value="Submit" aria-label="Submit" className="wpcf7-form-control submit-btn" />
+								</div>
+							</form>
+						</div>
+				</div>
+			</div>
+        </Modal>
 	<div className="header-main">
 		<div className="container">
 			<Link
