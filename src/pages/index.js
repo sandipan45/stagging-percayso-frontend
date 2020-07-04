@@ -16,6 +16,7 @@ import emailIcon from "../images/email-icon.png"
 import "./assets/scrollbar.css"
 
 const module = typeof window !== `undefined` ? require("module") : null
+
 const options = {
     responsiveClass: true,
     nav: true,
