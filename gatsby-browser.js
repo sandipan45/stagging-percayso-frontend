@@ -5,7 +5,6 @@
  */
 
 // You can delete this file if you're not using it
-import jQuery from 'jquery'
 const $ = require("jquery")
 
 export const onInitialClientRender = () => {
@@ -29,7 +28,7 @@ export const onInitialClientRender = () => {
         });
 		
 		$('[Link*=\\#]:not([Link=\\#])').click(function() {
-			if (window.location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && window.location.hostname == this.hostname) {
+			if (window.location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && window.location.hostname === this.hostname) {
 			var target = $(this.hash);
 			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 			if (target.length) {        

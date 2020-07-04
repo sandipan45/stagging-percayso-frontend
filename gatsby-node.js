@@ -5,18 +5,24 @@
  */
 
 // You can delete this file if you're not using it
-
+const webpack= require('webpack');
 exports.onCreateWebpackConfig = ({
-  actions,
-}) => {
-  const { setWebpackConfig } = actions;
-  setWebpackConfig({
-    externals: {
-      jquery: 'jQuery', // important: 'Q' capitalized
-    }
-  })
-}
-
+    stage,
+    rules,
+    loaders,
+    plugins,
+    actions,
+  }) => {
+    actions.setWebpackConfig({
+      plugins: [
+        new webpack.ProvidePlugin({
+          $: 'jquery',
+          jQuery: 'jquery',
+          'window.jQuery': 'jquery'
+        }),
+      ],
+    })
+  }
 const path = require('path')
 const makeRequest = (graphql, request) => new Promise((resolve, reject) => {
     resolve(
