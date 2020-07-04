@@ -15,8 +15,7 @@ import linkdinImage from "../images/linkedin-icon2.png"
 import emailIcon from "../images/email-icon.png"
 import "./assets/scrollbar.css"
 
-
-const isBrowser = typeof window !== 'undefined';
+const module = typeof window !== `undefined` ? require("module") : null
 const options = {
     responsiveClass: true,
     nav: true,
