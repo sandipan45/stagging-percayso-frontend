@@ -74,7 +74,7 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
     setIsOpen(false);
   }
   return (
-  <Layout>
+  <Layout> 
     <SEO title="Home" /> 
 	<div className="section intro-row" id="secIntro">
 		<div className="container">
