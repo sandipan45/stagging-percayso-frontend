@@ -1,9 +1,12 @@
 import React from "react"
+import jquery from 'jquery'
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Scrollbars } from 'react-custom-scrollbars'
 import Modal from 'react-modal'
+
+import 'owl.carousel';
 
 import OwlCarousel from 'react-owl-carousel-loop'
 import 'owl.carousel/dist/assets/owl.carousel.css'
@@ -15,7 +18,7 @@ import linkdinImage from "../images/linkedin-icon2.png"
 import emailIcon from "../images/email-icon.png"
 import "./assets/scrollbar.css"
 
-
+const $: typeof jquery = (window as any).jQuery;
 const options = {
     responsiveClass: true,
     nav: true,
