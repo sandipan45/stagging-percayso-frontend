@@ -5,6 +5,11 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+	new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery'
+    }),
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
