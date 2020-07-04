@@ -1,5 +1,4 @@
 import React from "react"
-import Loadable from '@loadable/component'
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -16,8 +15,6 @@ import {fromNewsSlugToUrl} from '../utils/news'
 import linkdinImage from "../images/linkedin-icon2.png"
 import emailIcon from "../images/email-icon.png"
 import "./assets/scrollbar.css"
-
-const windowGlobal = typeof window !== 'undefined' && window;
 
 
 const options = {
