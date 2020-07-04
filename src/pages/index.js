@@ -17,6 +17,9 @@ import linkdinImage from "../images/linkedin-icon2.png"
 import emailIcon from "../images/email-icon.png"
 import "./assets/scrollbar.css"
 
+const windowGlobal = typeof window !== 'undefined' && window;
+
+
 const options = {
     responsiveClass: true,
     nav: true,
