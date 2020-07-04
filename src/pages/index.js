@@ -1,4 +1,5 @@
 import React from "react"
+import $ from 'jquery'
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -15,7 +16,6 @@ import linkdinImage from "../images/linkedin-icon2.png"
 import emailIcon from "../images/email-icon.png"
 import "./assets/scrollbar.css"
 
-import $ from 'jquery';
 window.jQuery = $;
 window.$ = $;
 
