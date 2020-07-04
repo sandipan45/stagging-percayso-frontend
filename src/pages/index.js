@@ -15,6 +15,9 @@ import linkdinImage from "../images/linkedin-icon2.png"
 import emailIcon from "../images/email-icon.png"
 import "./assets/scrollbar.css"
 
+import $ from 'jquery';
+window.jQuery = $;
+window.$ = $;
 
 const options = {
     responsiveClass: true,
