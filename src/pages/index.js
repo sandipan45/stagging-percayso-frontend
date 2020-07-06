@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import { Scrollbars } from 'react-custom-scrollbars'
 import Modal from 'react-modal'
 
-
+import $ from 'jquery'
 import OwlCarousel from 'react-owl-carousel-loop'
 import 'owl.carousel/dist/assets/owl.carousel.css'
 import 'owl.carousel/dist/assets/owl.theme.default.css'
@@ -15,6 +15,9 @@ import {fromNewsSlugToUrl} from '../utils/news'
 import linkdinImage from "../images/linkedin-icon2.png"
 import emailIcon from "../images/email-icon.png"
 import "./assets/scrollbar.css"
+
+window.jQuery = $
+require('owl.carousel')
 
 
 const options = {
@@ -195,7 +198,7 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
 					loop
 					items={5}
 					{...options}
-				>
+			 >
 				{data.allStrapiPercaysoteam.nodes.map(percaysoTeam => (
 					<div className="item" key={percaysoTeam.strapiId}>
 						<div className="image-box">
