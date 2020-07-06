@@ -16,14 +16,13 @@ exports.onCreateWebpackConfig = ({
   }) => {
 	if (stage === "build-html") {
 		actions.setWebpackConfig({
-		  module: {
-                rules: [
-                    {
-                        test: /react-owl-carousel-loop/,
-                        use: loaders.null(),
-                    },
-                ],
-            },
+		  plugins: [
+			new webpack.ProvidePlugin({
+			  $: 'jquery',
+			  jQuery: 'jquery',
+			  'window.jQuery': 'jquery'
+			}),
+		  ],
 		})
 	}
   }
