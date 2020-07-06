@@ -16,7 +16,6 @@ exports.onCreateWebpackConfig = ({
     actions.setWebpackConfig({
       plugins: [
         new webpack.ProvidePlugin({
-          'jquery': $,
           jQuery: 'jquery',
 		  'window.jQuery': $
         }),
