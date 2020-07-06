@@ -5,6 +5,7 @@
  */
 
 // You can delete this file if you're not using it
+
 const webpack= require('webpack');
 exports.onCreateWebpackConfig = ({
     stage,
@@ -13,14 +14,18 @@ exports.onCreateWebpackConfig = ({
     plugins,
     actions,
   }) => {
-    actions.setWebpackConfig({
-      plugins: [
-        new webpack.ProvidePlugin({
-          jQuery: 'jquery',
-		  'window.jQuery': $
-        }),
-      ],
-    })
+	if (stage === "build-html") {
+		actions.setWebpackConfig({
+		  module: {
+                rules: [
+                    {
+                        test: /react-owl-carousel-loop/,
+                        use: loaders.null(),
+                    },
+                ],
+            },
+		})
+	}
   }
 
 const path = require('path')

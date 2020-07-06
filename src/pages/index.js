@@ -1,23 +1,27 @@
 import React from "react"
+import $ from 'jquery'
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Scrollbars } from 'react-custom-scrollbars'
 import Modal from 'react-modal'
 
-import $ from 'jquery'
+import {fromNewsSlugToUrl} from '../utils/news'
 import OwlCarousel from 'react-owl-carousel-loop'
 import 'owl.carousel/dist/assets/owl.carousel.css'
 import 'owl.carousel/dist/assets/owl.theme.default.css'
-
-import {fromNewsSlugToUrl} from '../utils/news'
 
 import linkdinImage from "../images/linkedin-icon2.png"
 import emailIcon from "../images/email-icon.png"
 import "./assets/scrollbar.css"
 
-window.jQuery = $
+window.jQuery = $;
 require('owl.carousel')
+
+const isBrowser = typeof window !== `undefined`
+if (isBrowser) {
+    console.log(window.location.pathname)
+}
 
 const options = {
     responsiveClass: true,
