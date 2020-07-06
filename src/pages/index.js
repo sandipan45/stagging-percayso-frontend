@@ -5,12 +5,65 @@ import SEO from "../components/seo"
 import { Scrollbars } from 'react-custom-scrollbars'
 import Modal from 'react-modal'
 
+
+import OwlCarousel from 'react-owl-carousel-loop'
+import 'owl.carousel/dist/assets/owl.carousel.css'
+import 'owl.carousel/dist/assets/owl.theme.default.css'
+
 import {fromNewsSlugToUrl} from '../utils/news'
 
 import linkdinImage from "../images/linkedin-icon2.png"
 import emailIcon from "../images/email-icon.png"
-import "./assets/owl.carousel.min.css"
 import "./assets/scrollbar.css"
+
+const options = {
+    responsiveClass: true,
+    nav: true,
+    dots: false,
+    autoplay: false,
+    responsive: {
+        0: {
+            items: 1
+        },
+        359: {
+            items: 2
+        },
+        550: {
+            items: 3
+        },
+        989: {
+            items:5
+
+        }
+    },
+};
+const newsoptions = {
+    responsiveClass: true,
+    nav: false,
+    dots: false,
+    autoplay: true,
+    responsive: {
+        0: {
+            items: 1,
+			margin: 20
+        },
+        470: {
+            items: 2,
+			margin: 20
+        },
+        767: {
+            items: 2,
+			margin: 60
+        },
+        989: {
+            items:3,
+			margin: 20,
+			autoplay : false,
+			touchDrag: false
+
+        }
+    },
+};
 
 const IndexPage = ({data}) => {
 const [modalIsOpen,setIsOpen] = React.useState(false);
@@ -136,7 +189,12 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
 	</div>
 	<div className="section percayso-team" id="secMeetTeam">
 		<div className="slider-box">
-			<div id="team-slider" className="owl-carousel owl-theme owl-loaded owl-drag">
+			<OwlCarousel
+					className="owl-theme"
+					loop
+					items={5}
+					{...options}
+				>
 				{data.allStrapiPercaysoteam.nodes.map(percaysoTeam => (
 					<div className="item" key={percaysoTeam.strapiId}>
 						<div className="image-box">
@@ -152,14 +210,18 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
 						</div>
 					</div>
 				))}
-			</div>
+				</OwlCarousel>
 		</div>
 	</div>
 	<div className="section percayso-news">
 		<div className="container" id="secLatestNews">
 			<h2 className="heading-h2">{data.strapiHomePageOtherSettings.latestnewstitle}</h2>
 			<h3 dangerouslySetInnerHTML={{__html: data.strapiHomePageOtherSettings.latestnewssubtitle }} />
-			<div className="news-slider owl-carousel owl-theme owl-loaded owl-drag">
+			<OwlCarousel
+					className="news-slider owl-theme"
+					loop
+					{...newsoptions}					
+				>
 				{data.allStrapiLatestNews.nodes.map(latestNews => (
 					<div className="item" key={latestNews.strapiId}>
 						<div className="blog-thumb">
@@ -167,7 +229,7 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
 						</div>
 						<div className="blog-info">
 							<h4>{latestNews.newstitle}</h4>
-							<p dangerouslySetInnerHTML={{__html: latestNews.newsdescription.substring(0, 100) }} />
+							<p dangerouslySetInnerHTML={{__html: latestNews.newssmalldescription }} />
 							<div className="blog-info-bottom">
 								<div className="author">
 									<span className="author-image">
@@ -186,7 +248,7 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
 					</div>
 				))}
 				
-			</div>
+			</OwlCarousel>
 		</div>
 	</div>
 	<div className="section percayso-career" id="secCareer">
