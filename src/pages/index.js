@@ -19,7 +19,6 @@ import "./assets/scrollbar.css"
 window.jQuery = $
 require('owl.carousel')
 
-
 const options = {
     responsiveClass: true,
     nav: true,
