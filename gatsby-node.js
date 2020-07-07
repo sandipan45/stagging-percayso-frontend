@@ -14,7 +14,6 @@ exports.onCreateWebpackConfig = ({
     plugins,
     actions,
   }) => {
-	if (stage === "build-html") {
 		actions.setWebpackConfig({
 		  plugins: [
 			new webpack.ProvidePlugin({
@@ -24,7 +23,6 @@ exports.onCreateWebpackConfig = ({
 			}),
 		  ],
 		})
-	}
   }
 
 const path = require('path')

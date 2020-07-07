@@ -1,5 +1,4 @@
 import React from "react"
-import $ from 'jquery'
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -7,66 +6,12 @@ import { Scrollbars } from 'react-custom-scrollbars'
 import Modal from 'react-modal'
 
 import {fromNewsSlugToUrl} from '../utils/news'
-import OwlCarousel from 'react-owl-carousel-loop'
-import 'owl.carousel/dist/assets/owl.carousel.css'
-import 'owl.carousel/dist/assets/owl.theme.default.css'
-
 import linkdinImage from "../images/linkedin-icon2.png"
 import emailIcon from "../images/email-icon.png"
 import "./assets/scrollbar.css"
+import "./assets/owl.carousel.min.css"
 
 
-const isBrowser = typeof window !== `undefined`
-
-
-const options = {
-    responsiveClass: true,
-    nav: true,
-    dots: false,
-    autoplay: false,
-    responsive: {
-        0: {
-            items: 1
-        },
-        359: {
-            items: 2
-        },
-        550: {
-            items: 3
-        },
-        989: {
-            items:5
-
-        }
-    },
-};
-const newsoptions = {
-    responsiveClass: true,
-    nav: false,
-    dots: false,
-    autoplay: true,
-    responsive: {
-        0: {
-            items: 1,
-			margin: 20
-        },
-        470: {
-            items: 2,
-			margin: 20
-        },
-        767: {
-            items: 2,
-			margin: 60
-        },
-        989: {
-            items:3,
-			margin: 20,
-			autoplay : false,
-			touchDrag: false
-
-        }
-    },
-};
 
 const IndexPage = ({data}) => {
 const [modalIsOpen,setIsOpen] = React.useState(false);
@@ -77,6 +22,7 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
   function closeModal(){
     setIsOpen(false);
   }
+ 
   return (
   <Layout> 
     <SEO title="Home" /> 
@@ -192,12 +138,7 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
 	</div>
 	<div className="section percayso-team" id="secMeetTeam">
 		<div className="slider-box">
-			<OwlCarousel
-					className="owl-theme"
-					loop
-					items={5}
-					{...options}
-			 >
+			<div id="team-slider" className="owl-carousel owl-theme owl-loaded owl-drag">
 				{data.allStrapiPercaysoteam.nodes.map(percaysoTeam => (
 					<div className="item" key={percaysoTeam.strapiId}>
 						<div className="image-box">
@@ -213,18 +154,14 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
 						</div>
 					</div>
 				))}
-				</OwlCarousel>
+			</div>
 		</div>
 	</div>
 	<div className="section percayso-news">
 		<div className="container" id="secLatestNews">
 			<h2 className="heading-h2">{data.strapiHomePageOtherSettings.latestnewstitle}</h2>
 			<h3 dangerouslySetInnerHTML={{__html: data.strapiHomePageOtherSettings.latestnewssubtitle }} />
-			<OwlCarousel
-					className="news-slider owl-theme"
-					loop
-					{...newsoptions}					
-				>
+			<div className="news-slider owl-carousel owl-theme owl-loaded owl-drag">
 				{data.allStrapiLatestNews.nodes.map(latestNews => (
 					<div className="item" key={latestNews.strapiId}>
 						<div className="blog-thumb">
@@ -232,7 +169,7 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
 						</div>
 						<div className="blog-info">
 							<h4>{latestNews.newstitle}</h4>
-							<p dangerouslySetInnerHTML={{__html: latestNews.newssmalldescription }} />
+							<p dangerouslySetInnerHTML={{__html: latestNews.newsdescription.substring(0, 100) }} />
 							<div className="blog-info-bottom">
 								<div className="author">
 									<span className="author-image">
@@ -251,7 +188,7 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
 					</div>
 				))}
 				
-			</OwlCarousel>
+			</div>
 		</div>
 	</div>
 	<div className="section percayso-career" id="secCareer">
