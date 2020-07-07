@@ -1402,7 +1402,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1000000', e
 
 
 
-.modal-overlay{
+.modal-overlay,.Overlay {
 	width: 100%;
 	height: 100%;
 	background: rgba(124, 58, 116, 0.9);
@@ -1427,8 +1427,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1000000', e
 	z-index: 7;
 	left: 50%;
 	top: 50%;
-	opacity: 0;
-	visibility: hidden;
+	/*opacity: 0;
+	visibility: hidden;*/
 	transform: translate(-50%, -50%);
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
