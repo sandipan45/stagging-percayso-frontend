@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useEffect } from "react"
 import Img from 'gatsby-image'
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
@@ -22,6 +22,12 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
   function closeModal(){
     setIsOpen(false);
   }
+useEffect(() => {
+    if (typeof window === "undefined" || !window.document) {
+      console.log(`bailing out of the useeffect. Going to continue to render??`)
+      return
+    }
+  }, [])  
 const [activeSlide, setActiveSlide] = useState(0);
   return (
   <Layout> 
