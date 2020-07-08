@@ -11,9 +11,7 @@ import linkdinImage from "../images/linkedin-icon2.png"
 import emailIcon from "../images/email-icon.png"
 import "./assets/scrollbar.css"
 import "./assets/owl.carousel.min.css"
-import "./assets/owl.carousel.js"
-
-import Carousel from 'react-simply-carousel';
+import Carousel from 'react-simply-carousel'
 
 const IndexPage = ({data}) => {
 const [modalIsOpen,setIsOpen] = React.useState(false);
