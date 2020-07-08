@@ -336,7 +336,6 @@ const [activeSlide, setActiveSlide] = useState(0);
 
 export default IndexPage
 
-
 export const pageQuery = graphql`
 query MyQuery {
   strapiAboutPercayso {
