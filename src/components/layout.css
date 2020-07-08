@@ -1433,6 +1433,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1000000', e
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	transition: all 0.5s ease;
+	display:none;
 }
 
 .talk-modal-active,
@@ -2683,6 +2684,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9a1f1c', end
 	display: none;
 }
 }
+
+.dFFQiB{right:0px; background: #fa4879 url(../images/arrow-next.png) no-repeat 16px 23px; position:absolute; top:40%; width:50px; height:85px; transform:translateY(-50%); text-indent:-9999px; border:none; touch-action: pan-y; -webkit-user-select: none; -ms-user-select: none; user-select: none; min-height: 1px; float: left; -webkit-backface-visibility: hidden; -webkit-touch-callout: none;}
+.kaHnvc{left:0px; background: #fa4879 url(../images/arrow-prev.png) no-repeat 11px 23px; position:absolute; top:40%; width:50px; height:85px; transform:translateY(-50%); text-indent:-9999px; border:none;touch-action: pan-y; -webkit-user-select: none; -ms-user-select: none; user-select: none; min-height: 1px; float: left; -webkit-backface-visibility: hidden; z-index:999; -webkit-touch-callout: none;}
+.percayso-news button {display:none;}
+._1Wl9uwIG1ye40T5BD9Vc_F  {width:100% !important; }
+.news-carousel{margin-right:20px !important;}
+
+
+
+
 
 
 

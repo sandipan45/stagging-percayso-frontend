@@ -1,4 +1,5 @@
-import React from "react"
+import React, {useState} from "react"
+import Img from 'gatsby-image'
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -10,8 +11,9 @@ import linkdinImage from "../images/linkedin-icon2.png"
 import emailIcon from "../images/email-icon.png"
 import "./assets/scrollbar.css"
 import "./assets/owl.carousel.min.css"
+import "./assets/owl.carousel.js"
 
-
+import Carousel from 'react-simply-carousel';
 
 const IndexPage = ({data}) => {
 const [modalIsOpen,setIsOpen] = React.useState(false);
@@ -22,7 +24,7 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
   function closeModal(){
     setIsOpen(false);
   }
- 
+const [activeSlide, setActiveSlide] = useState(0);
   return (
   <Layout> 
     <SEO title="Home" /> 
@@ -139,11 +141,24 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
 	<div className="section percayso-team" id="secMeetTeam">
 		<div className="slider-box">
 			<div id="team-slider" className="owl-carousel owl-theme owl-loaded owl-drag">
+			<Carousel      
+        activeSlideIndex={activeSlide}   
+        onRequestChange={setActiveSlide}
+        forwardBtnProps={{
+          children: ">",
+          className: "dFFQiB"
+        }}
+        backwardBtnProps={{
+          children: "<",
+          className: "kaHnvc"
+        }}
+		responsiveProps={[{maxWidth: 359, itemsToShow: 1}, {maxWidth: 550, itemsToShow: 3}, {maxWidth: 989, itemsToShow: 5}]}
+        itemsToShow={5}
+        speed={400}
+      >
 				{data.allStrapiPercaysoteam.nodes.map(percaysoTeam => (
-					<div className="item" key={percaysoTeam.strapiId}>
-						<div className="image-box">
-							<img src={percaysoTeam.featuredimage.publicURL} alt="" width="270" height="404" />
-						</div>
+					<div className="owl-item item team-item" key={percaysoTeam.strapiId}>
+							<Img fixed={percaysoTeam.featuredimage.childImageSharp.fixed} alt="" />
 						<div className="overlay-box">
 							<div className="inner-details">
 								<h4>{percaysoTeam.name}</h4>
@@ -152,8 +167,9 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
 								<div className="share-box"><Link to={percaysoTeam.linkdinurl} target="_blank" rel="noreferrer"><img src={linkdinImage} alt="" /></Link></div>
 							</div>
 						</div>
-					</div>
+					</div>	
 				))}
+				</Carousel>
 			</div>
 		</div>
 	</div>
@@ -162,10 +178,22 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
 			<h2 className="heading-h2">{data.strapiHomePageOtherSettings.latestnewstitle}</h2>
 			<h3 dangerouslySetInnerHTML={{__html: data.strapiHomePageOtherSettings.latestnewssubtitle }} />
 			<div className="news-slider owl-carousel owl-theme owl-loaded owl-drag">
+			<Carousel      
+				activeSlideIndex={activeSlide}   
+				onRequestChange={setActiveSlide} 
+				hideNavIfAllVisible		
+				itemsToShow={3}
+				speed={400}
+			  >
 				{data.allStrapiLatestNews.nodes.map(latestNews => (
-					<div className="item" key={latestNews.strapiId}>
+					<div className="owl-item cloned news-carousel" key={latestNews.strapiId}
+					style={{
+					  width: 426.333,
+					}}
+					>
+					<div className="item">
 						<div className="blog-thumb">
-							<img src={latestNews.newsfeaturedimage.publicURL} alt="" width="390" height="415" />
+							<Img fixed={latestNews.newsfeaturedimage.childImageSharp.fixed} alt="" />
 						</div>
 						<div className="blog-info">
 							<h4>{latestNews.newstitle}</h4>
@@ -173,7 +201,7 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
 							<div className="blog-info-bottom">
 								<div className="author">
 									<span className="author-image">
-										<img src={latestNews.authorimage.publicURL} alt="" width="25" height="25" />
+										<Img fixed={latestNews.authorimage.childImageSharp.fixed} alt="" />
 									</span>
 									<span className="author-name">{latestNews.authorname}</span>
 								</div>
@@ -186,8 +214,9 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
 							</Link>
 						</div>
 					</div>
+					</div>
 				))}
-				
+			</Carousel>	
 			</div>
 		</div>
 	</div>
@@ -208,11 +237,9 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
 						<Link to="#" className="close-btn">x</Link>
 						<h2>{careerNews.careertitle}</h2>
 						
-						<Scrollbars className="scroller-outer" style={{ width:500, height: 600 }}
+						<Scrollbars className="ppp" style={{ width:500, height: 600 }}
 						renderThumbVertical={({ style, ...props }) =>
-							<div {...props} style={{ ...style, width: '22px', borderRadius: '8px', right: '15px', display: 'block', height: '149px', transform:'translateY(0px)', backgroundColor: '#fa4879'  }}/>
-						}
-						
+							<div className="zzz" {...props} style={{ ...style, backgroundColor: 'red' }}/>}
 						>
 							<div className="scroll-content mCustomScrollbar" dangerouslySetInnerHTML={{__html: careerNews.careerdescription}}></div>
 						</Scrollbars>
@@ -384,7 +411,6 @@ query MyQuery {
   }
   strapiHomePageOtherSettings {
     investingpercaysotitle
-    Description
     whowearetitle
     whowearedeatils
 	latestnewstitle
@@ -407,8 +433,11 @@ query MyQuery {
       linkdinurl
 	  strapiId
       featuredimage {
-        extension
-        publicURL
+       childImageSharp {
+			fixed(width: 270, height: 404, quality: 100) {
+			  ...GatsbyImageSharpFixed
+			}
+		}
       }
     }
   }
@@ -423,12 +452,18 @@ query MyQuery {
       authorname
       newsdate(formatString: "DD MMM, YYYY")
       authorimage {
-        extension
-        publicURL
+        childImageSharp {
+			fixed(width: 25, height: 25, quality: 100) {
+			  ...GatsbyImageSharpFixed
+			}
+		}
       }
       newsfeaturedimage {
-        extension
-        publicURL
+        childImageSharp {
+			fixed(width: 390, height: 415, quality: 100) {
+			  ...GatsbyImageSharpFixed
+			}
+		}
       }
     }
   }
