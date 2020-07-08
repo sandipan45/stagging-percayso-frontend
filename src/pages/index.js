@@ -1,10 +1,11 @@
-import React, {useState} from "react"
+import React, {useState, Component } from "react"
 import Img from 'gatsby-image'
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Scrollbars } from 'react-custom-scrollbars'
 import Modal from 'react-modal'
+import ReactDOM from 'react-dom'
 
 import {fromNewsSlugToUrl} from '../utils/news'
 import linkdinImage from "../images/linkedin-icon2.png"
@@ -12,6 +13,37 @@ import emailIcon from "../images/email-icon.png"
 import "./assets/scrollbar.css"
 import "./assets/owl.carousel.min.css"
 import Carousel from 'react-simply-carousel'
+
+const portalRoot = typeof document !== `undefined` ? document.getElementById('portal') : null
+
+class Portal extends Component {
+
+  constructor() {
+    super()
+    // Use a ternary operator to make sure that the document object is defined
+    this.el = typeof document !== `undefined` ? document.createElement('div') : null
+  }
+
+  componentDidMount = () => {    
+    portalRoot.appendChild(this.el)
+  }
+
+  componentWillUnmount = () => {
+    portalRoot.removeChild(this.el)
+  }
+
+  render() {
+    const { children } = this.props
+
+    // Check that this.el is not null before using ReactDOM.createPortal
+    if (this.el) {
+      return ReactDOM.createPortal(children, this.el)
+    } else {
+      return null
+    }
+
+  }
+}
 
 const IndexPage = ({data}) => {
 const [modalIsOpen,setIsOpen] = React.useState(false);
