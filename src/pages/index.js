@@ -23,7 +23,8 @@ const [modalIsOpen,setIsOpen] = React.useState(false);
     setIsOpen(false);
   }
 const [activeSlide, setActiveSlide] = useState(0);
-if (typeof window !== 'undefined') {
+//const portalRoot = typeof document !== `undefined` ? document.getElementById('portal') : null
+if (typeof document  !== 'undefined') {
   return (
   <Layout> 
     <SEO title="Home" /> 
